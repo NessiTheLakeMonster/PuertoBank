@@ -2,7 +2,7 @@
 <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/javascript/javascript-original.svg" alt="javascript" width="40" height="40"/> </a> 
 
 Authors: 
-+ [Jaime Rafael Jaime Bautista](https://github.com/Sp3cTRe02)
++ [Jaime Rafael Fraile Bautista](https://github.com/Sp3cTRe02)
 + [Inés María Barrera Llerena](https://github.com/NessiTheLakeMonster)
 
 ----
@@ -73,10 +73,10 @@ Sale una tabla dinamica con las tarjetas que ya estan agregadas
 
 Inicialmente deben estar cargadas estas dos tarjetas por defecto
 + Tarjeta 1
-	+ Número de cuenta -> ES21 1465 0100 72 2030876293
-	+ Número de tarjeta -> 1234 12345 123456
+	+ Número de cuenta -> ``ES21 1465 0100 72 2030876293``
+	+ Número de tarjeta -> ``1234 12345 123456``
 	+ Activa -> Si
 + Tarjeta 2
-	+ Número de cuenta -> ES21 1465 0100 72 2030876293
-	+ Número de tarjeta -> 1234 12345 123456
+	+ Número de cuenta -> ``ES21 1465 0100 72 2030876293``
+	+ Número de tarjeta -> ``1234 12345 123456``
 	+ Activa -> No
