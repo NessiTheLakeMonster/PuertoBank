@@ -17,25 +17,30 @@
     
     <div id="datos-personales">
         <h1>Datos del Cliente</h1>
-
-        <p>Nombre: <input type="text" id="nom"></p>
-        
-        <p>Primer apellido: <input type="text" name="" id="ape1"></p>
-        
-        <p>Segundo apellido: <input type="text" name="" id="ape2"></p>
-        
-        <p>Nacionalidad: <input type="text" name="" id="nac"></p>
+        <table>
+            <tr>
+                <td>Nombre:</td>
+                <td><input type="text" id="nombre"></td>
+            </tr>
+            <tr>
+                <td>Primer apellido:</td>
+                <td><input type="text" id="apellido1"></td>
+            </tr>
+            <tr>
+                <td>Segundo apellido:</td>
+                <td><input type="text" id="apellido2"></td>
+            </tr>
+            <tr>
+                <td>Nacionalidad:</td>
+                <td><input type="text" id="nacionalidad"></td>
+            </tr>
+        </table>
     </div>
 
     <input type="button" value="Modificar Datos" ></input>
     
-<script src="app.js">
-
-    
-</script>
-<script>
-    cargarDatos()
-</script>
+<script src="app.js"></script>
+<script>cargarDatos()</script>
 
 </body>
 </html>
