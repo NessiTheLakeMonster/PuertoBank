@@ -3,6 +3,11 @@ const navHome = document.getElementById('home');
 const navCuenta = document.getElementById('cu');
 const navTrj = document.getElementById('trj');
 
+var msgNom = document.getElementById('msgNombre');
+var msgApe1 = document.getElementById('msgApe1');
+var msgApe2 = document.getElementById('msgApe2');
+var msgNac = document.getElementById('msgNac');
+
 var persona = {
     nombre : 'Inés María',
     apellido1 : 'Barrera',
@@ -14,16 +19,17 @@ btn.addEventListener('click', function(event) {
     modificarDatos();
 })
 
-// ------------------------ CONTROLES NAVEGACION ----------------------------
-
-/* navTrj.addEventListener('mouseover', function(event) {
-    navTrj.style.backgroundColor = '#555';
+navHome.addEventListener('focus', function(event) {
+    cargarDatos()
 })
 
-navTrj.addEventListener('mouseout', function(event) {
-    navTrj.style.backgroundColor = '#333';
+navCuenta.addEventListener('focus', function(event) {
+    cargarDatos()
 })
- */
+
+navTrj.addEventListener('focus', function(event) {
+    cargarDatos()
+})
 
 // --------------------------- FUNCIONES -------------------------------------
 
@@ -49,4 +55,24 @@ function modificarDatos() {
     persona.apellido1 = newApellido1;
     persona.apellido2 = newApellido2;
     persona.nacionalidad = newNacionalidad;
+}
+
+function validarNombre() {
+    var nombre = document.getElementById('nombre').value;
+    var regexNombre = /[A-Za-z]{3-30}/;
+
+    if (!regexNombre.test(nombre)) {
+        msgNom.style.color = 'red';
+        msgNom.textContent = 'Formato de nombre inválido';
+    }
+}
+
+function validarApellido1() {
+    
+}
+
+function modificarDatos() {
+    msgNom.textContent = '';
+
+    validarNombre();
 }
