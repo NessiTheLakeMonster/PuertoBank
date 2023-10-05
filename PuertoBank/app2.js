@@ -1,8 +1,9 @@
-const cantIngresar = document.getElementById('saldoIngresar');
-const cantRetirar = document.getElementById('saldoRetirar');
-const btnIngresar = document.getElementById('ingresar');
-const btnRetirar = document.getElementById('retirar');
-const infoOperacion = document.getElementById('infoOperacion');
+
+var cantIngresar = document.getElementById('saldoIngresar');
+var cantRetirar = document.getElementById('saldoRetirar');
+const btnIngresar = document.getElementById('btnIngresar');
+const btnRetirar = document.getElementById('btnRetirar');
+var infoOperacion = document.getElementById('infoOperacion');
 
 const regNumeros = /^[0-9]+$/;
 var cuenta = {
@@ -25,19 +26,19 @@ btnRetirar.addEventListener('click', function(event) {
 })
 
 function ingresarDinero() {
-    infoOperacion.textContent = 'Dinero ingresado correctamente : ' + cantIngresar;
+    infoOperacion.textContent = 'Dinero ingresado correctamente : ' + cantIngresar.value;
     infoOperacion.style.color = 'green';
     cuenta.saldo += cantIngresar;
 }
 function retirarDinero() {
-    infoOperacion.textContent = 'Dinero retirado correctamente : ' + cantRetirar;
+    infoOperacion.textContent = 'Dinero retirado correctamente : ' + cantRetirar.value;
     infoOperacion.style.color = 'green';
     cuenta.saldo -= cantRetirar;
 }
 
 function validarIngreso() {
     var esValido = false;
-    if (regNumeros.test(cantIngresar)){
+    if (regNumeros.test(cantIngresar.value)){
         esValido = true;
     }
     if (cantIngresar < 0){
@@ -47,7 +48,7 @@ function validarIngreso() {
 }
 function validarRetirada(){
     var esValido = false;
-    if (regNumeros.test(cantRetirar)){
+    if (regNumeros.test(cantRetirar.value)){
         esValido = true;
     }
     if (cantRetirar > cuenta.saldo){
