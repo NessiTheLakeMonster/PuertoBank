@@ -1,4 +1,7 @@
 const btnGuardar = document.getElementById('saveCard');
+const regCVV = /^[0-9]{3}$/
+const CVV = document.getElementById("CVV")
+
 let tablaD = document.getElementById('tablaDinamica');
 
 class Tarjeta {
@@ -29,3 +32,14 @@ function cargarDatosDefecto() {
         celda_3.innerHTML = tarjeta.activa;
     });
 }
+
+function validarCVV(){
+    var valido = false;
+    if(regCVV.test(CVV.value)){
+        valido = true;
+    }else{
+        CVV.style.backgroundColor = "#FF0000";
+    }
+    return valido;
+}
+
