@@ -7,6 +7,7 @@ var msgNom = document.getElementById('msgNombre');
 var msgApe1 = document.getElementById('msgApe1');
 var msgApe2 = document.getElementById('msgApe2');
 var msgNac = document.getElementById('msgNac');
+var msgBueno = document.getElementById('msgBueno');
 
 const regex1 = /[A-Za-z]{3,20}/;
 const regex2 = /[A-Za-z]{3,15}/;
@@ -21,6 +22,9 @@ var persona = {
 btn.addEventListener('click', function(event) {
     if (validarDatos()) {
         modificarDatos();
+
+        msgBueno.style.color = 'green';
+        msgBueno.textContent = 'Usuario modificado correctamente!!';
     }
 })
 
@@ -64,6 +68,8 @@ function validarNombre() {
         msgNom.style.color = 'red';
         msgNom.textContent = 'Formato de nombre inválido';
     }
+
+    return regex1.test(nombre);
 }
 
 function validarApellido1() {
@@ -73,6 +79,8 @@ function validarApellido1() {
         msgApe1.style.color = 'red';
         msgApe1.textContent = 'Formato de apellido inválido';
     }
+
+    return regex1.test(apellido1);
 }
 
 function validarApellido2() {
@@ -82,6 +90,8 @@ function validarApellido2() {
         msgApe2.style.color = 'red';
         msgApe2.textContent = 'Formato de apellido inválido';
     }
+
+    return regex1.test(apellido2);
 }
 
 function validarNacionalidad() {
@@ -91,27 +101,29 @@ function validarNacionalidad() {
         msgNac.style.color = 'red';
         msgNac.textContent = 'Formato de nacionalidad inválida';
     }
+
+    return regex2.test(nacionalidad);
 }
 
 function validarDatos() {
     limpiarErrores();
-    
+
     var valido = true;
 
     if (!validarNombre()) {
-        return valido;
+        valido = false;
     }
 
     if (!validarApellido1()) {
-        return valido;
+        valido = false;
     }
 
     if (!validarApellido2()) {
-        return valido;
+        valido = false;
     }
 
     if (!validarNacionalidad()) {
-        return valido;
+        valido = false;
     }
 
     return valido;
@@ -122,5 +134,4 @@ function limpiarErrores() {
     msgApe1.textContent = '';
     msgApe2.textContent = '';
     msgNac.textContent = '';
-
 }
