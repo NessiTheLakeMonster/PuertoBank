@@ -4,6 +4,10 @@ const CVV = document.getElementById("CVV")
 
 let tablaD = document.getElementById('tablaDinamica');
 
+btnGuardar.addEventListener('click', function(event) {
+    addTarjeta()
+})
+
 class Tarjeta {
 
     constructor(numeroTrj, cvv, activa) {
@@ -23,9 +27,9 @@ function cargarDatosDefecto() {
     tarjetas.forEach(function (tarjeta) {
         let fila = tablaD.insertRow(-1);
         
-        let celda_1 = row.insertCell(0);
-        let celda_2 = row.insertCell(1);
-        let celda_3 = row.insertCell(2);
+        let celda_1 = fila.insertCell(0);
+        let celda_2 = fila.insertCell(1);
+        let celda_3 = fila.insertCell(2);
 
         celda_1.innerHTML = tarjeta.numeroTrj;
         celda_2.innerHTML = tarjeta.cvv;
@@ -43,3 +47,26 @@ function validarCVV(){
     return valido;
 }
 
+
+function addTarjeta() {
+    var tarjetas = [];
+    var numTarjeta = document.getElementById('numCard');
+    var cvv = document.getElementById('cvv');
+    var activa = document.getElementById('act');
+
+    var tarjeta = new Tarjeta(numTarjeta.value, cvv.value, activa.value);
+    tarjetas.push(tarjeta);
+
+    tarjetas.forEach(function(tarjeta) {
+        let fila = tablaD.insertRow();
+
+        let celda_1 = fila.insertCell(0);
+        let celda_2 = fila.insertCell(1);
+        let celda_3 = fila.insertCell(2);
+
+        celda_1.innerHTML = numTarjeta.value;
+        celda_2.innerHTML = cvv.value;
+        celda_3.innerHTML = activa.value;
+    })
+
+}
