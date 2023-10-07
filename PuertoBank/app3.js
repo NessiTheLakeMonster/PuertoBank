@@ -4,7 +4,7 @@ const CVV = document.getElementById("CVV")
 
 let tablaD = document.getElementById('tablaDinamica');
 
-cosnt = cuenta = JSON.parse(localStorage.getItem('cuenta'));
+const cuenta = JSON.parse(localStorage.getItem('cuenta'));
 localStorage.setItem("cuenta",JSON.stringify(cuenta))
 
 btnGuardar.addEventListener('click', function(event) {
@@ -14,8 +14,6 @@ btnGuardar.addEventListener('click', function(event) {
 function cargarCabecera(dest){
     document.getElementById(dest).innerHTML = '   <h1>BancoPuertollano</h1>    <ul>        <li><a href="index.html">Inicio</a></li>        <li><a href="infoCuenta.html">Informaci&#243;n Cuenta</a></li>             <li><a href="tarjetas.html">Tarjetas</a></li>    </ul>'
 }
-
-
 
 function cargarDatosDefecto() {
     cuenta.tarjetas.forEach((tarjeta) =>{
@@ -47,8 +45,8 @@ function addTarjeta() {
     var activa = document.getElementById('act');
 
     var tarjeta = new Tarjeta(numTarjeta.value, cvv.value, activa.value);
-    tarjetas.push(tarjeta);
-  
+    cuenta.tarjeta.push(tarjeta);
+
         let fila = tablaD.insertRow();
 
         let celda_1 = fila.insertCell(0);
