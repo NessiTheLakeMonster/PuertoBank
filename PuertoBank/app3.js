@@ -23,9 +23,9 @@ function cargarDatosDefecto() {
     tarjetas.forEach(function (tarjeta) {
         let fila = tablaD.insertRow(-1);
         
-        let celda_1 = row.insertCell(0);
-        let celda_2 = row.insertCell(1);
-        let celda_3 = row.insertCell(2);
+        let celda_1 = fila.insertCell(0);
+        let celda_2 = fila.insertCell(1);
+        let celda_3 = fila.insertCell(2);
 
         celda_1.innerHTML = tarjeta.numeroTrj;
         celda_2.innerHTML = tarjeta.cvv;
@@ -42,4 +42,6 @@ function validarCVV(){
     }
     return valido;
 }
-
+function cargarCabecera(dest){
+    document.getElementById(dest).innerHTML = '   <h1>BancoPuertollano</h1>    <ul>        <li><a href="index.html">Inicio</a></li>        <li><a href="infoCuenta.html">Informaci&#243;n Cuenta</a></li>             <li><a href="tarjetas.html">Tarjetas</a></li>    </ul>'
+}
