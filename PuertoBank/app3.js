@@ -8,6 +8,10 @@ btnGuardar.addEventListener('click', function(event) {
     addTarjeta()
 })
 
+function cargarCabecera(dest){
+    document.getElementById(dest).innerHTML = '   <h1>BancoPuertollano</h1>    <ul>        <li><a href="index.html">Inicio</a></li>        <li><a href="infoCuenta.html">Informaci&#243;n Cuenta</a></li>             <li><a href="tarjetas.html">Tarjetas</a></li>    </ul>'
+}
+
 class Tarjeta {
 
     constructor(numeroTrj, cvv, activa) {
@@ -47,7 +51,6 @@ function validarCVV(){
     return valido;
 }
 
-
 function addTarjeta() {
     var numTarjeta = document.getElementById('numCard');
     var cvv = document.getElementById('cvv');
@@ -55,8 +58,7 @@ function addTarjeta() {
 
     var tarjeta = new Tarjeta(numTarjeta.value, cvv.value, activa.value);
     tarjetas.push(tarjeta);
-
-    
+  
         let fila = tablaD.insertRow();
 
         let celda_1 = fila.insertCell(0);
@@ -67,5 +69,7 @@ function addTarjeta() {
         celda_2.innerHTML = cvv.value;
         celda_3.innerHTML = activa.value;
     
-
 }
+
+
+
