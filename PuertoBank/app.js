@@ -12,12 +12,38 @@ var msgBueno = document.getElementById('msgBueno');
 const regex1 = /[A-Za-z]{3,20}/;
 const regex2 = /[A-Za-z]{3,15}/;
 
+
 var persona = {
     nombre : 'Ines Maria',
     apellido1 : 'Barrera',
     apellido2 : 'Llerena',
     nacionalidad : 'Española'
 };
+
+var datosCuenta = {
+    IBAN: "ES21 1465 0100 72 2030976293",
+    saldo: 500
+}
+
+class Tarjeta {
+    constructor(numeroTrj, cvv, activa) {
+        this.numeroTrj = numeroTrj;
+        this.cvv = cvv;
+        this.activa = activa;
+    }
+}
+
+const tarjeta1 = new Tarjeta('1234 12345 123456', '123', 'Si');
+const tarjeta2 = new Tarjeta('1234 12345 123456', '123', 'No');
+
+
+var cuenta = {
+    persona,
+    datosCuenta,
+    tarjetas :  [tarjeta1, tarjeta2]
+}
+
+localStorage.setItem("cuenta",JSON.stringify(cuenta))
 
 btn.addEventListener('click', function(event) {
     if (validarDatos()) {
@@ -42,11 +68,18 @@ navTrj.addEventListener('focus', function(event) {
 
 // --------------------------- FUNCIONES -------------------------------------
 
+function navegar(){
+    var cuentaString = JSON.stringify(cuenta);
+    localStorage.setItem("cuenta",cuentaString)
+    window.location.href='datos.html'
+}
+
 function cargarDatos(){
-    document.getElementById('nombre').value = persona.nombre;
-    document.getElementById('apellido1').value = persona.apellido1;
-    document.getElementById('apellido2').value = persona.apellido2;
-    document.getElementById('nacionalidad').value = persona.nacionalidad;
+    compararDatos()
+    document.getElementById('nombre').value = cuenta.persona.nombre;
+    document.getElementById('apellido1').value = cuenta.persona.apellido1;
+    document.getElementById('apellido2').value = cuenta.persona.apellido2;
+    document.getElementById('nacionalidad').value = cuenta.persona.nacionalidad;
     menu = document.getElementById('menu').innerHTML
 }
 
@@ -55,12 +88,23 @@ function cargarCabecera(dest){
 }
 
 function modificarDatos() {
-    persona.nombre = document.getElementById('nombre').value;
-    persona.apellido1 = document.getElementById('apellido1').value;
-    persona.apellido2 = document.getElementById('apellido2').value;
-    persona.nacionalidad = document.getElementById('nacionalidad').value;
+    cuenta.persona.nombre = document.getElementById('nombre').value;
+    cuenta.persona.apellido1 = document.getElementById('apellido1').value;
+    cuenta.persona.apellido2 = document.getElementById('apellido2').value;
+    cuenta.persona.nacionalidad = document.getElementById('nacionalidad').value;
 }
+function cargarCuentaMod(){
+    return newCuenta = JSON.parse(localStorage.getItem("cuenta"))
 
+}
+function compararDatos(){
+    var cuenta2 = cargarCuentaMod()
+    if (cuenta != cuenta2){
+        cuenta.persona = cuenta2.persona
+        cuenta.datosCuenta = cuenta2.datosCuenta
+        cuenta.tarjetas = cuenta2.tarjetas
+    }
+}
 function validarNombre() {
     var nombre = document.getElementById('nombre').value;
 

@@ -6,10 +6,10 @@ const btnRetirar = document.getElementById('btnRetirar');
 var infoOperacion = document.getElementById('infoOperacion');
 
 const regNumeros = /^[0-9]+$/;
-var cuenta = {
-    IBAN: "ES21 1465 0100 72 2030976293",
-    saldo: 500
-}
+
+const cuenta = JSON.parse(localStorage.getItem('cuenta'));
+localStorage.setItem("cuenta",JSON.stringify(cuenta))
+
 cantIngresar.addEventListener('focus', function(event) {
     cantRetirar.value = '';
 })
@@ -24,6 +24,7 @@ btnRetirar.addEventListener('click', function(event) {
     realizarOperacion();
     document.getElementById('saldo').innerHTML = cuenta.saldo;
 })
+
 
 function ingresarDinero() {
     infoOperacion.textContent = 'Dinero ingresado correctamente : ' + cantIngresar.value;
