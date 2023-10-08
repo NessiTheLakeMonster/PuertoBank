@@ -28,8 +28,14 @@ const regTarjeta = /^[0-9]{4}\s[0-9]{5}\s[0-9]{6}$/
 
 let tablaD = document.getElementById('tablaDinamica');
 
+
 /*cosnt cuenta = JSON.parse(localStorage.getItem('cuenta'));
 localStorage.setItem("cuenta",JSON.stringify(cuenta))*/
+/*
+const cuenta = JSON.parse(localStorage.getItem('cuenta'));
+localStorage.setItem("cuenta",JSON.stringify(cuenta))
+*/
+
 
 btnGuardar.addEventListener('click', function(event) {
     if (validarErrores()) {
@@ -44,7 +50,6 @@ function navegar() {
 function cargarCabecera(dest){
     document.getElementById(dest).innerHTML = '   <h1>BancoPuertollano</h1>    <ul>        <li><a href="index.html">Inicio</a></li>        <li><a href="infoCuenta.html">Informaci&#243;n Cuenta</a></li>             <li><a href="tarjetas.html">Tarjetas</a></li>    </ul>'
 }
-
 
 function cargarDatosDefecto() {
     cuenta.tarjetas.forEach((tarjeta) =>{
@@ -106,11 +111,12 @@ function validarCVV(){
     return valido;
 }
 
+
 function validarNum() {
     var valido = false
-    if(regTarjeta.test(numTarjeta.value)){
+    if (regTarjeta.test(numTarjeta.value)) {
         valido = true
-    }else {
+    } else {
         numTarjeta.style.backgroundColor = '#FF0000'
     }
     return valido
@@ -131,8 +137,8 @@ function validarErrores() {
 
     return valido;
 }
-
 function limpiarErrores() {
     numTarjeta.style.backgroundColor = 'white'
     CVV.style.backgroundColor = 'white';
 }
+
