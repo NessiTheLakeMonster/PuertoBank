@@ -1,15 +1,21 @@
 <!DOCTYPE html>
 <html>
 <head>
+  <meta charset="UTF-8">
     <title>BancoPuertollano</title>
     <link rel="stylesheet" type="text/css" href="estilos.css" />
 </head>
 <body>
     <div id="menu">
-       
+      <h1>BancoPuertollano</h1>
+        <ul >
+            <li><a href="index.html" id="home">Inicio</a></li>
+            <li><a href="infoCuenta.html" id="cu">Información Cuenta</a></li>
+            <li><a href="tarjetas.html" id="trj">Tarjetas</a></li>
+        </ul>
     </div>
     <h2>Tarjetas</h2>
-    <table>
+    <table id="tablaDinamica">
         <thead>
         <tr>
             <th>Numero de cuenta</th>
@@ -21,9 +27,10 @@
 
         </tbody>
     </table>
+    
     <table>
         <tr>
-          <td><b>Nombre:</b></td>
+          <td><b>Número de tarjeta:</b></td>
           <td><input type="text" name="numCard" id="numCard" placeholder="Numero de Tarjeta"></td>
         </tr>
         <tr>
@@ -40,4 +47,8 @@
       </table>
 </body>
 <script src="app3.js"></script>
+<script>
+    cargarDatosDefecto()
+    cargarCabecera('menu')
+</script>
 </html>
