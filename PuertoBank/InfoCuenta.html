@@ -16,15 +16,15 @@
 </div>
 
 <h1>Información de la Cuenta</h1>
-<p>IBAN: <input type="text"></p>
-<p>Saldo: <input type="number" id="saldo"></p>
+<p>IBAN: <input type="text" id="iban" disabled size="30"></p>
+<p>Saldo: <input type="number" id="saldo" disabled></p>
 <p><input type="text" placeholder="Saldo a retirar" id="saldoRetirar"> <input type="button" value="retirar" id="btnRetirar"></p>
 <p><input type="text" placeholder="Saldo a Ingresar" id="saldoIngresar"> <input type="button" value="ingresar"id="btnIngresar"></p>
 <p id="infoOperacion"></p>
 <script src="app2.js"></script>
 <script>
-    cargarCabecera('menu')
     cargarDatos()
+    cargarCabecera('menu')
 </script>
 </body>
 </html>
